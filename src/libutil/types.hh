@@ -72,8 +72,11 @@ typedef string Path;
 typedef list<Path> Paths;
 typedef set<Path> PathSet;
 
+/* croup paths */
+typedef string Cgroup;
+typedef list<Cgroup> Cgroups;
 
-typedef enum {
+typedef enum { 
     lvlError = 0,
     lvlInfo,
     lvlTalkative,
