@@ -191,11 +191,18 @@ struct Settings {
        (to prevent them from being GCed). */
     bool envKeepDerivations;
 
+
     /* Whether to lock the Nix client and worker to the same CPU. */
     bool lockCPU;
 
     /* Whether to show a stack trace if Nix evaluation fails. */
     bool showTrace;
+
+    /* Whether to use cgroup of process invoking the action also for nix-daemon
+       process running it (to prevent escaping from cgroup).
+       Daemon process must be able to write to tasks file of all cgroups that
+       can be used this way */
+    bool daemonUseCgroups;
 
     /* A list of URL prefixes that can return Nix build logs. */
     Strings logServers;

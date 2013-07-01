@@ -61,6 +61,7 @@ Settings::Settings()
     envKeepDerivations = false;
     lockCPU = getEnv("NIX_AFFINITY_HACK", "1") == "1";
     showTrace = false;
+    daemonUseCgroups = false;
 }
 
 
@@ -145,6 +146,7 @@ void Settings::update()
     get(gcKeepDerivations, "gc-keep-derivations");
     get(autoOptimiseStore, "auto-optimise-store");
     get(envKeepDerivations, "env-keep-derivations");
+    get(daemonUseCgroups, "daemon-use-cgroups");
     get(sshSubstituterHosts, "ssh-substituter-hosts");
     get(useSshSubstituter, "use-ssh-substituter");
     get(logServers, "log-servers");
