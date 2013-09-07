@@ -349,7 +349,4 @@ string decodeOctalEscaped(const string & s);
    ignore the exception. */
 void ignoreException();
 
-Cgroups getCgroups(long pid = -1);
-void joinCgroups(const Cgroups &);
-
 }
