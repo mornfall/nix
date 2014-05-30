@@ -86,9 +86,6 @@ typedef std::map<Path, Path> SrcToStore;
 std::ostream & operator << (std::ostream & str, const Value & v);
 
 
-typedef list<std::pair<string, Path> > SearchPath;
-
-
 class EvalState
 {
 public:
@@ -114,6 +111,7 @@ private:
 #endif
     FileEvalCache fileEvalCache;
 
+    typedef list<std::pair<string, Path> > SearchPath;
     SearchPath searchPath;
 
 public:
@@ -139,7 +137,6 @@ public:
 
     /* Look up a file in the search path. */
     Path findFile(const string & path);
-    Path findFile(SearchPath & searchPath, const string & path);
 
     /* Evaluate an expression to normal form, storing the result in
        value `v'. */

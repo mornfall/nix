@@ -48,7 +48,9 @@ Path lookupFileArg(EvalState & state, string s)
 {
     if (s.size() > 2 && s.at(0) == '<' && s.at(s.size() - 1) == '>') {
         Path p = s.substr(1, s.size() - 2);
-        return state.findFile(p);
+        Path p2 = state.findFile(p);
+        if (p2 == "") throw Error(format("file `%1%' was not found in the Nix search path (add it using $NIX_PATH or -I)") % p);
+        return p2;
     } else
         return absPath(s);
 }
