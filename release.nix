@@ -36,8 +36,9 @@ let
         '';
 
         postUnpack = ''
+          touch $sourceRoot/README
           # Clean up when building from a working tree.
-          (cd $sourceRoot && (git ls-files -o | xargs -r rm -v))
+          # (cd $sourceRoot && (git ls-files -o | xargs -r rm -v))
         '';
 
         preConfigure = ''
